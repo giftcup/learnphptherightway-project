@@ -18,4 +18,7 @@ foreach ($files as $file) {
     $transactions = array_merge($transactions, get_transaction($file, 'parseTransaction'));
 }
 
+$totals = calculateTotals($transactions);
+
+
 require VIEWS_PATH . 'transactions.php';
