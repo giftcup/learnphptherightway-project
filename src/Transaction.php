@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+require_once 'Customer.php';
+
 class Transaction {
 
     public ?Customer $customer = null;

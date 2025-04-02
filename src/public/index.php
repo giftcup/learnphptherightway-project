@@ -2,16 +2,14 @@
 
 declare(strict_types=1);
 
-require_once '../Transaction.php';
+// require_once '../Transaction.php';
 
-$transaction = new Transaction(5.99, "Headsets");
+require_once '../app/PaymentGateway/Stripe/Transaction.php';
+require_once '../app/PaymentGateway/Paddle/Transaction.php';
+require_once '../app/PaymentGateway/Paddle/CustomerProfile.php';
 
-// Chaining methods
-$amount = $transaction->addTax(7.5)
-    ->applyDiscount(20)
-    ->getAmount();
+use App\PaymentGateway\Stripe\Transaction as StripeTransaction;
+use App\PaymentGateway\Paddle\Transaction;
 
-
-$transaction2 = new Transaction(5, 'Test');
-
-$transaction->customer?->paymentProfile?->id;
+var_dump(new Transaction());
+var_dump(new StripeTransaction());
