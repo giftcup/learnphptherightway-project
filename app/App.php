@@ -29,8 +29,7 @@ function get_transaction(string $filename, ?callable $transactionHandler = null)
 
     while(($transaction = fgetcsv($file)) !== false) {
         if($transactionHandler !== null) {
-            var_dump($transactionHandler);
-            $transaction = transactionHandler($transaction);
+            $transaction = $transactionHandler($transaction);
         }
 
         $transactions[] = $transaction;
