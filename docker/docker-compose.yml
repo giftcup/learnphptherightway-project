@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   app:
     build:
@@ -11,7 +9,7 @@ services:
     volumes:
       - ../src:/var/www
   nginx:
-    image: nginx:1.19-alpine
+    image: nginx:1.26.3-alpine-slim
     container_name: programwithgio-nginx
     restart: always
     ports:
