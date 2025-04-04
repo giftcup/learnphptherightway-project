@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use App\PaymentGateway\Paddle\Transaction;
+$router = new App\Router();
 
-$paddleTransaction = new Transaction();
+$router->register('/', [App\Classes\Home::class, 'index'])
+    ->register('/invoices', [App\Classes\Invoice::class, 'index'])
+    ->register('/invoices/create', [App\Classes\Invoice::class, 'create']);
 
-$id = new \Ramsey\Uuid\UuidFactory();
-
-echo $id->uuid4();
-
-var_dump($paddleTransaction);
+echo $router->resolve($_SERVER['REQUEST_URI']);
